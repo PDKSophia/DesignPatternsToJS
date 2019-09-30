@@ -12,8 +12,6 @@
 
 如果觉得对您有帮助的话，点个 ⭐star 再走？
 
----
-
 ## 封装的一些小玩意
 
 ### Adapter Request Classes
@@ -27,7 +25,7 @@
 
 #### 使用
 
-👉 了解更多，请点击这里: [Adapter Request Classses](./commonClasses/adapterAPI/README.md)
+👉 了解更多，请点击这里 [Adapter Request Classses](./commonClasses/adapterAPI/README.md)
 
 ```javascript
 import React from 'react'
