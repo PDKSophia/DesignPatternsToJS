@@ -6,6 +6,16 @@
  */
 import { codeMessage, backendCodeMessage } from './code'
 const baseUrl = 'http://www.pengdaokuan.cn'
+
+/**
+ * 判断url是否http/https开头
+ * @param {String} url 
+ */
+function isUrl(url) {
+  let patt = '/^(https?|ftp|file):\/\/.+$/'
+  return patt.test(url)
+}
+
 /**
  * 处理URL的方法
  * url 可能为: '/v1/api/backend/retriveList'

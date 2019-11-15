@@ -12,6 +12,12 @@
 
 如果觉得对您有帮助的话，点个 ⭐star 再走？
 
+## 博文
+
+- [创建型-构造器模式](./创建型-构造器模式.md)
+
+- [创建型-工厂模式](./创建型-创建型-工厂模式.md)
+
 ## 封装的一些小玩意
 
 ### Adapter Request Classes
@@ -57,6 +63,6 @@ export class requestComponent extends React.PureComponent {
 
 ## Others
 
-Copyright © 2018 by PDK
+Copyright © 2019 by PDK
 
 If you have any questions, please contact me 1063137960@qq.com
