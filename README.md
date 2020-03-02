@@ -20,6 +20,33 @@
 
 ## 封装的一些小玩意
 
+### Download classes
+
+#### 主要功能
+
+- 下载资源文件 ✅
+- 支持图片/音频/视频/PDF/DOC 等类型 ✅
+- 兼容 IE、Edge、Chrome、FireFox、360 浏览器 ✅
+
+#### 使用
+
+```js
+import { retrieveFileType, downloadFile } from 'commonClasses/Download';
+
+// 下载资源
+downloadClick = () => {
+  for (let i = 0; i <= resourceList.length - 1; i++) {
+    downloadFile({
+      ...resourceList[i],
+      // 如果本身无fileType，需要加入自定义默认的类型
+      fileType: retrieveFileType(resourceList[i].resourceType)
+    });
+  }
+};
+```
+
+---
+
 ### Adapter Request Classes
 
 #### 主要功能
@@ -34,8 +61,8 @@
 👉 了解更多，请点击这里 [Adapter Request Classses](./commonClasses/adapterAPI/README.md)
 
 ```javascript
-import React from 'react'
-import adapter from './adapter'
+import React from 'react';
+import adapter from './adapter';
 
 export class requestComponent extends React.PureComponent {
   componentWillMount() {
@@ -46,11 +73,11 @@ export class requestComponent extends React.PureComponent {
         headers: { 'X-Requested-With': 'XMLHttpRequest' }
       })
       .then(res => {
-        console.log(res)
+        console.log(res);
       })
       .catch(err => {
-        console.log(err)
-      })
+        console.log(err);
+      });
   }
 }
 ```

@@ -2,9 +2,9 @@
 
 ## 主要功能
 
-- 下载资源文件
-- 支持图片/音频/视频/PDF/DOC 等类型
-- 兼容 IE、Edge、Chrome、FireFox、360 浏览器
+- 下载资源文件 ✅
+- 支持图片/音频/视频/PDF/DOC 等类型 ✅
+- 兼容 IE、Edge、Chrome、FireFox、360 浏览器 ✅
 
 ## 注意
 
@@ -14,16 +14,19 @@
 
 ## 方法
 
-- downloadFile()
-
-  - 资源下载
-  - @param {Object} resource
-  - resource: {
-    link: '', 文件下载地址
-    reName: '', 用户自定义导出的文件名
-    fileType: '', 源文件类型，当文件名为空或不携带类型时，此字段必须需要
-    fileName: '', 源文件名，尽可能带有类型，如 a.jpg、b.mp3
-    }
+```
+/**
+ * @desc 资源下载文件 downloadFile
+ * @Support Image/Audio/Video/Word/PDF
+ * @param {Object} resource - 资源文件
+ * resource: {
+ *     link: '', 文件下载地址
+ *     reName: '', 用户自定义导出的文件名
+ *     fileType: '', 源文件类型，当文件名为空或不携带类型时，此字段必须需要
+ *     fileName: '', 源文件名，尽可能带有类型，如 a.jpg、b.mp3
+ * }
+ */
+```
 
 ## 使用
 
