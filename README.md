@@ -6,7 +6,7 @@
 
 ## 介绍
 
-> JavaScript 设计模式的学习，会跟着《JavaScript 设计模式》这本书进行一些 demo 的记录，同时会自己写一些在工作或学习中的公共函数类，如 `adapter request classes` 、`time classes`等
+> JavaScript 设计模式的学习，会跟着《JavaScript 设计模式》这本书进行一些 demo 的记录，当然除了设计模式，还会记录自己封装的一些小玩意。
 
 ## 客官，点个赞?
 
@@ -19,6 +19,67 @@
 - [创建型-工厂模式](./创建型-创建型-工厂模式.md)
 
 ## 封装的一些小玩意
+
+### Button Component
+
+#### 主要功能
+
+- 借鉴 Ant Design，低成本了解一个公共组件的设计 ✅
+- 支持普通按钮、文本按钮、图标按钮、组合按钮、反白按钮 ✅
+
+#### 使用
+
+##### 普通按钮
+
+```jsx
+<Button type="main" color="orange">主按钮</Button>
+<Button type="secondary" color="danger">次按钮</Button>
+
+<Button ghost={true}>幽灵按钮</Button>
+<Button antiWhite={true}>反白按钮</Button>
+```
+
+##### 文本按钮
+
+```jsx
+<ButtonText type="main">普通文本主按钮</ButtonText>
+<ButtonText type="secondary">强反馈文本次按钮</ButtonText>
+```
+
+##### 图标按钮
+
+如果你的图标需要交互效果结束后，Icon 会变色，那么你需要这么写
+
+```jsx
+<ButtonIcon icon={<Icon />} iconClassName="my-icon">
+  加载
+</ButtonIcon>
+```
+
+当然也支持这么写
+
+```jsx
+<Button>
+  <Icon icon={loading.svg} />
+  加载
+</Button>
+```
+
+##### 组合按钮
+
+```jsx
+const Group = Button.ButtonGroup;
+
+<Group size="large" shape="circle">
+  <Button>Large</Button>
+  <Button>Large</Button>
+</Group>
+
+<Group shape="circle">
+  <Button>Default</Button>
+  <Button>Default</Button>
+</Group>
+```
 
 ### Download classes
 

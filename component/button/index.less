@@ -1,0 +1,324 @@
+@import '../style/index.less';
+
+@button-prefix-cls: ~'@{sugar-prefix}-button';
+@button-group-prefix-cls: ~'@{sugar-prefix}-button-group';
+
+@button-sm-width: 56px;
+@button-md-width: 96px;
+@button-lg-width: 144px;
+@button-xl-width: 144px;
+
+@button-sm-height: 28px;
+@button-md-height: 32px;
+@button-lg-height: 48px;
+@button-xl-height: 60px;
+
+@button-sm-padding: 8px;
+@button-md-padding: 14px;
+@button-lg-padding: 24px;
+@button-xl-padding: 40px;
+
+@button-sm-font-size: 12px;
+@button-md-font-size: 14px;
+@button-lg-font-size: 16px;
+@button-xl-font-size: 16px;
+
+// 样式优先级 ghost/antiWhite > color
+
+// 平常状态
+.@{button-prefix-cls} {
+  position: relative;
+  text-align: center;
+  display: inline-block; // min-width生效
+  box-sizing: border-box;
+  border-radius: @btn-border-radius;
+
+  // 大小
+  &-small {
+    min-width: @button-sm-width;
+    height: @button-sm-height;
+    line-height: @button-sm-height;
+    padding: 0 @button-sm-padding;
+    font-size: @button-sm-font-size;
+  }
+  &-middle {
+    min-width: @button-md-width;
+    height: @button-md-height;
+    line-height: @button-md-height;
+    padding: 0 @button-md-padding;
+    font-size: @button-md-font-size;
+  }
+  &-large {
+    min-width: @button-lg-width;
+    height: @button-lg-height;
+    line-height: @button-lg-height;
+    padding: 0 @button-lg-padding;
+    font-size: @button-lg-font-size;
+  }
+  &-thumb {
+    min-width: @button-xl-width;
+    height: @button-xl-height;
+    line-height: @button-xl-height;
+    padding: 0 @button-xl-padding;
+    font-size: @button-xl-font-size;
+  }
+
+  // 色调
+  &-normal {
+    color: @btn-normal-color;
+    background-color: @btn-normal-bg;
+    border: 1px solid @btn-border-color;
+    &:hover {
+      border: 1px solid @btn-normal-hover-bg;
+      background-color: @btn-normal-hover-bg;
+    }
+    &:active {
+      border: 1px solid @btn-normal-click-bg;
+      color: @btn-normal-click-color;
+      background-color: @btn-normal-click-bg;
+    }
+    &:focus {
+      border: 1px solid @btn-normal-bg;
+      background-color: @btn-normal-bg;
+    }
+  }
+  &-orange {
+    color: @btn-orange-color;
+    background-color: @btn-orange-bg;
+    &:hover {
+      background-color: @btn-orange-hover-bg;
+    }
+    &:active {
+      background-color: @btn-orange-click-bg;
+    }
+    &:focus {
+      background-color: @btn-orange-bg;
+    }
+  }
+  &-danger {
+    color: @btn-danger-color;
+    background-color: @btn-danger-bg;
+    &:hover {
+      background-color: @btn-danger-hover-bg;
+    }
+    &:active {
+      background-color: @btn-danger-click-bg;
+    }
+    &:focus {
+      background-color: @btn-danger-bg;
+    }
+  }
+
+  // 按钮宽度调整为父宽度
+  &-block {
+    width: 100%;
+    height: 100%;
+  }
+
+  // 幽灵
+  &-ghost {
+    background-color: @btn-normal-bg;
+    border: 1px solid @btn-border-color;
+    &-normal {
+      color: @btn-normal-color;
+      &:hover {
+        background-color: @btn-normal-hover-bg;
+      }
+      &:active {
+        background-color: @btn-normal-click-bg;
+      }
+    }
+    &-orange {
+      color: @btn-orange-bg;
+      &:hover {
+        background-color: @btn-normal-hover-bg;
+      }
+      &:active {
+        color: @btn-orange-click-bg;
+        background-color: @btn-orange-ghost-bg;
+      }
+    }
+    &-danger {
+      color: @btn-danger-bg;
+      &:hover {
+        background-color: @btn-normal-hover-bg;
+      }
+      &:active {
+        color: @btn-danger-click-bg;
+        background-color: @btn-danger-ghost-bg;
+      }
+    }
+  }
+
+  // 主按钮+反白
+  &-antiwhite-main {
+    color: @btn-anti-main-color;
+    background-color: @btn-anti-main-bg;
+    &:hover {
+      color: @btn-anti-main-color;
+      background-color: @btn-anti-main-hover-bg;
+    }
+    &:active {
+      color: @B-40-t;
+      background-color: @btn-anti-main-click-bg;
+    }
+  }
+  // 次按钮+反白
+  &-antiwhite-secondary {
+    color: @btn-anti-secondary-color;
+    border: 1px solid @White;
+    background-color: @btn-anti-secondary-bg;
+    &:hover {
+      color: @btn-anti-secondary-color;
+      border: 1px solid @W-80-t;
+      background-color: @btn-anti-secondary-hover-bg;
+    }
+    &:active {
+      color: @btn-anti-secondary-color;
+      border: 1px solid @W-50-t;
+      background-color: @btn-anti-secondary-click-bg;
+    }
+  }
+
+  // disabled
+  &-disabled {
+    cursor: not-allowed;
+    color: @btn-normal-disable-color;
+    background-color: @btn-normal-disable-bg;
+
+    &-orange {
+      color: @btn-orange-color;
+      background-color: @btn-orange-disable-bg;
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: @btn-orange-disable-bg;
+      }
+    }
+    &-danger {
+      color: @btn-danger-color;
+      background-color: @btn-danger-disable-bg;
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: @btn-danger-disable-bg;
+      }
+    }
+    &-ghost {
+      color: @btn-normal-disable-color;
+      background-color: @btn-normal-disable-bg;
+      &:hover,
+      &:active,
+      &:focus {
+        color: @btn-normal-disable-color;
+        background-color: @btn-normal-disable-bg;
+      }
+    }
+    &-antiwhite-main {
+      color: @W-20-t;
+      background-color: @btn-anti-main-disable-bg;
+      &:hover,
+      &:active,
+      &:focus {
+        color: @W-20-t;
+        background-color: @btn-anti-main-disable-bg;
+      }
+    }
+    &-antiwhite-secondary {
+      color: @W-30-t;
+      border: 1px solid @W-30-t;
+      background-color: @btn-anti-secondary-disable-bg;
+      &:hover,
+      &:active,
+      &:focus {
+        color: @W-30-t;
+        border: 1px solid @W-30-t;
+        background-color: @btn-anti-secondary-disable-bg;
+      }
+    }
+  }
+}
+
+// 组合按钮
+.@{button-group-prefix-cls} {
+  // 组合下的Button边框都去掉
+  .@{button-prefix-cls} {
+    border: none;
+    border-radius: 0;
+  }
+  // 重新设置边框及圆角
+  &-default {
+    .@{button-prefix-cls} {
+      &:first-child {
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+      }
+      &:last-child {
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+      }
+    }
+  }
+  &-circle {
+    .@{button-prefix-cls} {
+      &:first-child {
+        border-top-left-radius: @btn-border-radius;
+        border-bottom-left-radius: @btn-border-radius;
+      }
+      &:last-child {
+        border-top-right-radius: @btn-border-radius;
+        border-bottom-right-radius: @btn-border-radius;
+      }
+    }
+  }
+  // 解决组件大小组合使得高度、宽度不一致问题
+  &-small {
+    .@{button-prefix-cls} {
+      min-width: @button-sm-width;
+      height: @button-sm-height;
+      line-height: @button-sm-height;
+      font-size: @button-sm-font-size;
+    }
+  }
+  &-middle {
+    .@{button-prefix-cls} {
+      min-width: @button-md-width;
+      height: @button-md-height;
+      line-height: @button-md-height;
+      font-size: @button-md-font-size;
+    }
+  }
+  &-large {
+    .@{button-prefix-cls} {
+      min-width: @button-lg-width;
+      height: @button-lg-height;
+      line-height: @button-lg-height;
+      font-size: @button-lg-font-size;
+    }
+  }
+  &-thumb {
+    .@{button-prefix-cls} {
+      min-width: @button-xl-width;
+      height: @button-xl-height;
+      line-height: @button-xl-height;
+      font-size: @button-xl-font-size;
+    }
+  }
+
+  &-border {
+    border: 1px solid @btn-border-color;
+  }
+  &:not(:first-child):not(:last-child) {
+    border-right-color: @btn-border-color;
+    border-left-color: @btn-border-color;
+  }
+  &:first-child {
+    &:not(:last-child) {
+      border-right-color: @btn-border-color;
+    }
+  }
+  &:last-child:not(:first-child),
+  & + & {
+    border-left-color: @btn-border-color;
+  }
+}
