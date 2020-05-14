@@ -12,7 +12,7 @@
 
 如果觉得对您有帮助的话，点个 ⭐star 再走？
 
-## 博文
+## 🥇 博文
 
 - [构造器模式](./构造器模式.md)
 
@@ -20,7 +20,9 @@
 
 - [前端设计模式](./前端设计模式.md)
 
-## 封装的一些小玩意
+---
+
+## 🏓 组件设计
 
 ### Button Component
 
@@ -29,78 +31,16 @@
 - 借鉴 Ant Design，低成本了解一个公共组件的设计 ✅
 - 支持普通按钮、文本按钮、图标按钮、组合按钮、反白按钮 ✅
 
-#### 使用
+#### 文档
 
-##### 普通按钮
-
-```jsx
-<Button type="main" color="orange">主按钮</Button>
-<Button type="secondary" color="danger">次按钮</Button>
-
-<Button ghost={true}>幽灵按钮</Button>
-<Button antiWhite={true}>反白按钮</Button>
-```
-
-##### 文本按钮
-
-```jsx
-<ButtonText type="main">普通文本主按钮</ButtonText>
-<ButtonText type="secondary">强反馈文本次按钮</ButtonText>
-```
-
-##### 图标按钮
-
-```jsx
-<Button>
-  <Icon icon={loading.svg} />
-  加载
-</Button>
-```
-
-##### 组合按钮
-
-```jsx
-const Group = Button.ButtonGroup;
-
-<Group size="large" shape="circle">
-  <Button>Large</Button>
-  <Button>Large</Button>
-</Group>
-
-<Group shape="circle">
-  <Button>Default</Button>
-  <Button>Default</Button>
-</Group>
-```
-
-### Download classes
-
-#### 主要功能
-
-- 下载资源文件 ✅
-- 支持图片/音频/视频/PDF/DOC 等类型 ✅
-- 兼容 IE、Edge、Chrome、FireFox、360 浏览器 ✅
-
-#### 使用
-
-```js
-import { retrieveFileType, downloadFile } from 'commonClasses/Download';
-
-// 下载资源
-downloadClick = () => {
-  for (let i = 0; i <= resourceList.length - 1; i++) {
-    downloadFile({
-      ...resourceList[i],
-      // 如果本身无fileType，需要加入自定义默认的类型
-      fileType: retrieveFileType(resourceList[i].resourceType)
-    });
-  }
-};
-```
+- [Button 使用文档](./component/button/index.md)
+- [Button 设计文档](./component/button/Design.md)
 
 ---
 
-### Adapter Request Classes
+## 🎯 请求封装
+
+### Adapter Request
 
 #### 主要功能
 
@@ -135,14 +75,82 @@ export class requestComponent extends React.PureComponent {
 }
 ```
 
-### 设计模式的学习 Demo
+---
 
-敬请等待 ⌛️ ...
+## 🏏 工具封装
+
+### Download
+
+#### 主要功能
+
+- 下载资源文件 ✅
+- 支持图片/音频/视频/PDF/DOC 等类型 ✅
+- 兼容 IE、Edge、Chrome、FireFox、360 浏览器 ✅
+
+#### 使用
+
+```js
+import { retrieveFileType, downloadFile } from 'commonClasses/Download';
+
+// 下载资源
+downloadClick = () => {
+  for (let i = 0; i <= resourceList.length - 1; i++) {
+    downloadFile({
+      ...resourceList[i],
+      // 如果本身无fileType，需要加入自定义默认的类型
+      fileType: retrieveFileType(resourceList[i].resourceType)
+    });
+  }
+};
+```
+
+### Browser
+
+#### 主要功能
+
+- 获取主流浏览器名称
+- 包含主流浏览器
+  - Chrome 浏览器 ✅
+  - FireFox 浏览器 ✅
+  - Safari 浏览器 ✅
+  - Edge 浏览器 ✅
+  - IE 浏览器（5~11）✅
+  - QQ 浏览器 ✅
+  - UC 浏览器 ✅
+  - Opera 浏览器 ✅
+  - Sougou 浏览器 ✅
+  - Baidu 浏览器 ✅
+  - 遨游浏览器 ✅
+  - 猎豹浏览器 ✅
+  - 夸克浏览器 ✅
+  - 世界之窗浏览器 ✅
+  - 360 浏览器 ✅
+
+#### 使用
+
+```js
+import { getBrowserVersionName } from 'commonClasses/Browser';
+
+const browser_name = getBrowserVersionName();
+```
+
+---
+
+## 💈 设计模式 Demo
+
+- [策略模式](./patterns/策略模式.js)
+- [代理模式](./patterns/代理模式.js)
+- [发布-订阅模式](./patterns/发布-订阅模式.js)
+- [工厂模式](./patterns/工厂模式.js)
+- [构造器模式](./patterns/构造器模式.js)
+- [适配器模式](./patterns/适配器模式.js)
+- [责任链模式](./patterns/责任链模式.js)
+- [装饰器模式](./patterns/装饰器模式.js)
 
 ---
 
 ## Others
 
-Copyright © 2019 by PDK
+Copyright © 2019 - 2020 by PDK
 
 If you have any questions, please contact me 1063137960@qq.com
