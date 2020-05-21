@@ -51,7 +51,7 @@
 
 #### 使用
 
-👉 了解更多，请点击这里 [Adapter Request Classses](./commonClasses/adapterAPI/README.md)
+👉 了解更多，请点击这里 [Adapter Request Classses](./utils/adapterAPI/README.md)
 
 ```javascript
 import React from 'react';
@@ -90,7 +90,7 @@ export class requestComponent extends React.PureComponent {
 #### 使用
 
 ```js
-import { retrieveFileType, downloadFile } from 'commonClasses/Download';
+import { retrieveFileType, downloadFile } from 'utils/Download';
 
 // 下载资源
 downloadClick = () => {
@@ -129,9 +129,56 @@ downloadClick = () => {
 #### 使用
 
 ```js
-import { getBrowserVersionName } from 'commonClasses/Browser';
+import { getBrowserVersionName } from 'utils/Browser';
 
 const browser_name = getBrowserVersionName();
+```
+
+### FullScreen 全屏
+
+
+#### 使用
+
+```js
+import { fullScreen, cancelFullScreen, isFullScreen } from '@common/fullscreen';
+
+function TuPu() {
+  const domRef = useRef(null);
+  function openFullScreen() {
+    fullScreen(domRef.current); // 浏览器进入全屏
+  }
+
+  function closeFullScreen() {
+    cancelFullScreen(); // 退出浏览器全屏
+  }
+
+  // 这才是重点 ❗❗❗
+  // fullscreenchange 一定会被触发，监听这个，盘它!
+  useEffect(() => {
+    function exitHandler() {
+      if (!isFullScreen()) {
+        // 当前处于全屏下
+        cancelFullScreen();
+      }
+    }
+    document.addEventListener('webkitfullscreenchange', exitHandler, false);
+    document.addEventListener('mozfullscreenchange', exitHandler, false);
+    document.addEventListener('fullscreenchange', exitHandler, false);
+    document.addEventListener('MSFullscreenChange', exitHandler, false);
+    return () => {
+      document.removeEventListener('webkitfullscreenchange', exitHandler, false);
+      document.removeEventListener('mozfullscreenchange', exitHandler, false);
+      document.removeEventListener('fullscreenchange', exitHandler, false);
+      document.removeEventListener('MSFullscreenChange', exitHandler, false);
+    };
+  });
+
+  return (
+    <div ref={domRef}>
+      <EchartsCanvas />
+    </div>
+  );
+}
 ```
 
 ---
